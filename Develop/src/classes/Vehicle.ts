@@ -24,6 +24,7 @@ class Vehicle implements Driveable {
     this.started = true;
     console.log('Vehicle started');
   }
+    
 
   // Method to accelerate the vehicle
   accelerate(change: number): void {

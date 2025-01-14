@@ -15,11 +15,18 @@ class Wheel {
     return this.diameter;
   }
 
-  // Setter method for the diameter property
+  // Getter method for the tireBrand property
   get getTireBrand(): string {
     return this.tireBrand;
+  }
+
+  // Method to print vehicle details
+  printDetails(): void {
+    console.log(`diameter: ${this.diameter}`);
+    console.log(`tireBrand: ${this.tireBrand}`);
   }
 }
 
 // Export the Wheel class
 export default Wheel;
+

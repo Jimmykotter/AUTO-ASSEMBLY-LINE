@@ -7,7 +7,7 @@ import Wheel from "./Wheel.js";
 
 // define the Cli class
 class Cli {
-  // TODO: update the vehicles property to accept Truck and Motorbike objects as well
+  // TODO: update the vehicles property to accept Truck a nd Motorbike objects as well
   // TODO: You will need to use the Union operator to define additional types for the array
   // TODO: See the AbleToTow interface for an example of how to use the Union operator
   vehicles: (Car)[];
@@ -61,7 +61,7 @@ class Cli {
           name: 'vehicleType',
           message: 'Select a vehicle type',
           // TODO: Update the choices array to include Truck and Motorbike
-          choices: ['Car'],
+          choices: ['Car', 'Truck', 'Motorbike'],
         },
       ])
       .then((answers) => {
@@ -284,6 +284,8 @@ class Cli {
             'Reverse',
             'Select or create another vehicle',
             'Exit',
+            'Tow',
+            'Wheelie',
           ],
         },
       ])
@@ -348,6 +350,20 @@ class Cli {
         }
         // TODO: add statements to perform the tow action only if the selected vehicle is a truck. Call the findVehicleToTow method to find a vehicle to tow and pass the selected truck as an argument. After calling the findVehicleToTow method, you will need to return to avoid instantly calling the performActions method again since findVehicleToTow is asynchronous.
         // TODO: add statements to perform the wheelie action only if the selected vehicle is a motorbike
+        else if (answers.action === 'Wheelie') {
+          // find the selected vehicle and perform a wheelie
+          for (let i = 0; i < this.vehicles.length; i++) {
+            if (this.vehicles[i].vin === this.selectedVehicleVin) {
+              // check if the vehicle is a motorbike
+              if (this.vehicles[i] instanceof Motorbike) {
+                // perform a wheelie
+                this.vehicles[i].wheelie();
+              }
+            }
+          }
+        }
+
+
         else if (answers.action === 'Select or create another vehicle') {
           // start the cli to return to the initial prompt if the user wants to select or create another vehicle
           this.startCli();
