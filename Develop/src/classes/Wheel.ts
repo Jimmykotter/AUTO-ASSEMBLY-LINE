@@ -20,7 +20,7 @@ class Wheel {
     return this.tireBrand;
   }
 
-  // Method to print vehicle details
+  // Method to print wheel details
   printDetails(): void {
     console.log(`diameter: ${this.diameter}`);
     console.log(`tireBrand: ${this.tireBrand}`);
